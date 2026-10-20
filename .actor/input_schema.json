@@ -1,0 +1,65 @@
+{
+  "title": "Google Ads Transparency Scraper & Bulk Domain Ad Checker",
+  "description": "Extract competitor ads (text, image, video) from Google Ads Transparency Center, bulk-check whether a list of domains runs Google Ads, or summarize an advertiser's strategy. Enter domains (nike.com), brand names, Advertiser IDs (AR...), or Transparency URLs.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "queries": {
+      "title": "Domains, Brand Names, Advertiser IDs, or URLs",
+      "type": "array",
+      "description": "Enter one or more domains (e.g. nike.com, shopify.com), advertiser names, Advertiser IDs (AR...), or Google Ads Transparency URLs.",
+      "editor": "stringList",
+      "default": ["nike.com", "shopify.com"],
+      "prefill": ["nike.com", "shopify.com"]
+    },
+    "mode": {
+      "title": "Operation Mode",
+      "type": "string",
+      "description": "Choose 'ads' to extract ad creatives, 'check_domains' to bulk-check which domains actively run Google Ads (great for B2B lead generation), or 'summary' for an advertiser strategy overview.",
+      "editor": "select",
+      "enum": ["ads", "check_domains", "summary"],
+      "enumTitles": [
+        "Extract Ad Creatives (text, image, video)",
+        "Bulk Check Domains (B2B Lead-Gen Ad Spend Qualifier)",
+        "Advertiser Strategy Summary (format mix, landing domains, copy)"
+      ],
+      "default": "ads"
+    },
+    "maxAdsPerQuery": {
+      "title": "Max Ads per Query (or Sample Size for Summary)",
+      "type": "integer",
+      "description": "Maximum number of ads to return for each domain/advertiser in 'ads' mode (1-500), or sample size in 'summary' mode (1-100).",
+      "editor": "number",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "adFormat": {
+      "title": "Ad Format Filter",
+      "type": "string",
+      "description": "Filter extracted creatives by format (applies to 'ads' mode).",
+      "editor": "select",
+      "enum": ["all", "text", "image", "video"],
+      "enumTitles": ["All formats", "Text ads only", "Image ads only", "Video ads only"],
+      "default": "all"
+    },
+    "region": {
+      "title": "Target Region",
+      "type": "string",
+      "description": "ISO country code (e.g. US, GB, DE, FR, CA, AU, ID, IN, SG, BR) or 'anywhere' for global ads.",
+      "editor": "textfield",
+      "default": "anywhere",
+      "prefill": "anywhere"
+    },
+    "proxyConfiguration": {
+      "title": "Proxy Configuration (Optional)",
+      "type": "object",
+      "description": "Not required for normal volume. Enable only if running large batches and experiencing rate limits.",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": false
+      }
+    }
+  },
+  "required": ["queries"]
+}

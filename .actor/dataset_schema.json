@@ -1,0 +1,115 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": ["string", "null"],
+        "description": "Input domain, brand name, or Advertiser ID"
+      },
+      "domain": {
+        "type": ["string", "null"],
+        "description": "Checked domain (in check_domains mode)"
+      },
+      "runsGoogleAds": {
+        "type": ["boolean", "null"],
+        "description": "Whether the domain actively runs Google Ads"
+      },
+      "advertiserId": {
+        "type": ["string", "null"],
+        "description": "Verified Google Advertiser ID (AR...)"
+      },
+      "advertiserName": {
+        "type": ["string", "null"],
+        "description": "Verified Google Advertiser Name"
+      },
+      "advertiserTotalActiveAds": {
+        "type": ["integer", "null"],
+        "description": "Total active ads for this advertiser"
+      },
+      "activeAdsCount": {
+        "type": ["integer", "null"],
+        "description": "Active ads count (in check_domains mode)"
+      },
+      "creativeId": {
+        "type": ["string", "null"],
+        "description": "Ad Creative ID (CR...)"
+      },
+      "format": {
+        "type": ["string", "null"],
+        "description": "Ad format (text, image, video)"
+      },
+      "lastShown": {
+        "type": ["string", "null"],
+        "description": "Date the ad was last shown (YYYY-MM-DD)"
+      },
+      "region": {
+        "type": ["string", "null"],
+        "description": "Target region"
+      },
+      "headline": {
+        "type": ["string", "null"],
+        "description": "Decoded ad headline"
+      },
+      "description": {
+        "type": ["string", "null"],
+        "description": "Decoded ad description"
+      },
+      "destinationUrl": {
+        "type": ["string", "null"],
+        "description": "Landing page domain or URL"
+      },
+      "imageUrl": {
+        "type": ["string", "null"],
+        "description": "Image creative asset URL"
+      },
+      "videoUrl": {
+        "type": ["string", "null"],
+        "description": "Video creative asset URL"
+      },
+      "transparencyUrl": {
+        "type": ["string", "null"],
+        "description": "Direct link to the creative on Google Ads Transparency Center"
+      }
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": [
+          "query",
+          "domain",
+          "runsGoogleAds",
+          "advertiserName",
+          "advertiserId",
+          "format",
+          "lastShown",
+          "headline",
+          "description",
+          "destinationUrl",
+          "imageUrl",
+          "transparencyUrl"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "query": { "label": "Query" },
+          "domain": { "label": "Domain" },
+          "runsGoogleAds": { "label": "Runs Ads", "format": "boolean" },
+          "advertiserName": { "label": "Advertiser Name" },
+          "advertiserId": { "label": "Advertiser ID" },
+          "format": { "label": "Format" },
+          "lastShown": { "label": "Last Shown" },
+          "headline": { "label": "Headline" },
+          "description": { "label": "Description" },
+          "destinationUrl": { "label": "Destination" },
+          "imageUrl": { "label": "Image", "format": "image" },
+          "transparencyUrl": { "label": "Transparency Link", "format": "link" }
+        }
+      }
+    }
+  }
+}
