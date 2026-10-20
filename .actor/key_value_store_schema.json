@@ -1,0 +1,15 @@
+{
+  "actorKeyValueStoreSchemaVersion": 1,
+  "title": "Run Summary & Metadata",
+  "description": "Stores execution summary and run statistics in the default key-value store.",
+  "collections": {
+    "summary": {
+      "title": "Run Summary",
+      "description": "JSON summary of queries processed and total results extracted",
+      "key": "SUMMARY",
+      "contentTypes": [
+        "application/json"
+      ]
+    }
+  }
+}

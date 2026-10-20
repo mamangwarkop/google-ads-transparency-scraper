@@ -1,0 +1,17 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Google Ads Transparency Scraper Output",
+  "description": "Scraped Google Ads creatives, bulk domain ad-spend checks, or advertiser strategy summaries.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Scraped Results (Overview Table)",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run Summary (JSON)",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY"
+    }
+  }
+}
